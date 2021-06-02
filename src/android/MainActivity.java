@@ -30,6 +30,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import ch.ti8m.vk.vicsdk.LocaleHelper;
+
 public class MainActivity extends FragmentActivity
 {
     private static final String TAG = "MainActivity";
@@ -58,10 +61,10 @@ public class MainActivity extends FragmentActivity
             ft.commit();
         }
     }
-    
+
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        
+
         currentFragment.onSaveInstanceState(outState);
     }
 
@@ -96,5 +99,10 @@ public class MainActivity extends FragmentActivity
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                             int[] grantResults) {
         currentFragment.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.INSTANCE.onAttach(newBase));
     }
 }

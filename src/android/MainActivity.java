@@ -26,14 +26,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import ch.ti8m.vk.vicsdk.LocaleHelper;
 
-public class MainActivity extends FragmentActivity
+public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "MainActivity";
 

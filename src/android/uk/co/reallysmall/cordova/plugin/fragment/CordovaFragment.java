@@ -40,6 +40,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import org.apache.cordova.BuildConfig;
@@ -98,7 +99,7 @@ public class CordovaFragment extends Fragment {
 
     // The webview for our app
     protected CordovaWebView appView;
-    
+
     public CordovaWebView getAppView() {
         return appView;
     }
@@ -134,7 +135,7 @@ public class CordovaFragment extends Fragment {
             this.contentView = new FrameLayout(this.getActivity().getBaseContext());
         }
         loadUrl(launchUrl);;
-        
+
         return contentView;
     }
 
@@ -261,7 +262,7 @@ public class CordovaFragment extends Fragment {
     }
 
     protected CordovaInterfaceImpl makeCordovaInterface() {
-        return new CordovaInterfaceImpl(getActivity()) {
+        return new CordovaInterfaceImpl((AppCompatActivity) getActivity()) {
             @Override
             public Object onMessage(String id, Object data) {
                 // Plumb this to CordovaActivity.onMessage for backwards compatibility
